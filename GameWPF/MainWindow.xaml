@@ -5,8 +5,168 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="1000" Width="1300" Loaded="Window_Loaded" Closed="Window_Closed" Left="10" Top="10" MinWidth="1300" MinHeight="1000" WindowState="Maximized" WindowStyle="SingleBorderWindow"
+        Background="AliceBlue">
+    <Grid  ShowGridLines="false" UseLayoutRounding="False" x:Name="Game">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"></RowDefinition>
+            <RowDefinition Height="800*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"></ColumnDefinition>
+            <ColumnDefinition Width="200*"></ColumnDefinition>
+            <ColumnDefinition Width="100*"></ColumnDefinition>
+            <ColumnDefinition Width="200*"></ColumnDefinition>
+            <ColumnDefinition Width="100*"></ColumnDefinition>
+            <ColumnDefinition Width="200*"></ColumnDefinition>
+            <ColumnDefinition Width="300*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label  Grid.Column="0" FontSize="20" Grid.ColumnSpan="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Кредиты</Label>
+        <Label Grid.Column="2" FontSize="20" Grid.ColumnSpan="1" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">Люди</Label>
+        <Label Grid.Column="4" FontSize="20" Grid.ColumnSpan="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold">Товары</Label>
+        <TextBox Name="creditsText" Grid.Column="1" Margin="5,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" IsEnabled="False" AcceptsReturn="True" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center">500</TextBox>
+        <TextBox Name="populationText" Grid.Column="3" Margin="5,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" IsEnabled="False" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center">200 / 1000</TextBox>
+        <TextBox Name="goodsText" Grid.Column="5" Margin="5,5,5,5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" IsEnabled="False" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center">300</TextBox>
+
+        <Grid Name="mapGrid" Grid.Row="1" Grid.ColumnSpan="6" Margin="20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <Grid Name="infoGrid" Grid.Row="0" Grid.RowSpan="2" Grid.Column="7" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110*"></ColumnDefinition>
+                <ColumnDefinition Width="250*"></ColumnDefinition>
+                <ColumnDefinition Width="150*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" FontWeight="Bold" Background="CadetBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0">ТХ</Label>
+            <Label Name="BaseLvlLabel" Grid.Column="0" Grid.Row="1" FontWeight="Bold" Content="Lvl 1" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Name="BasePriceTxt" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Margin="0" HorizontalAlignment="Center"  Content="1000 кр., 500лд., 1000 тов."  />
+            <Button x:Name="BaseLvlButton" Grid.Column="2" Grid.Row="1" Margin="5" Content="Lvl Up" Click="BaseLvlButton_Click" />
+            <Label  Grid.Column="0" Grid.Row="2" FontWeight="Bold" Content="Оборона" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Name="DeffenceLbl" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"  Margin="0" HorizontalAlignment="Center"  Content="200"  />
+            <Label  VerticalAlignment="Center" Grid.Column="2" Grid.Row="2"  Margin="0" HorizontalAlignment="Center"  Content="единиц"  />
+
+
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" FontWeight="Bold" Background="CadetBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0">Армия</Label>
+            <Label  Grid.Column="0" Grid.Row="4" FontWeight="Bold" Content="Скорость" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Name="SpeedAmount" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"  Margin="0" HorizontalAlignment="Center"  Content="0"  />
+            <Label  VerticalAlignment="Center" Grid.Column="2" Grid.Row="4"  Margin="0" HorizontalAlignment="Center"  Content="штук"  />
+
+            <Label  Grid.Column="0" Grid.Row="5" FontWeight="Bold" Content="Атака" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Name="AttackAmount" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5"  Margin="0" HorizontalAlignment="Center"  Content="0"  />
+            <Label  VerticalAlignment="Center" Grid.Column="2" Grid.Row="5"  Margin="0" HorizontalAlignment="Center"  Content="штук"  />
+
+            <Label  Grid.Column="0" Grid.Row="6" FontWeight="Bold" Content="Защита" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Name="DeffenceAmount" VerticalAlignment="Center" Grid.Column="1" Grid.Row="6"  Margin="0" HorizontalAlignment="Center"  Content="0"  />
+            <Label  VerticalAlignment="Center" Grid.Column="2" Grid.Row="6"  Margin="0" HorizontalAlignment="Center"  Content="штук"  />
+
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="7" FontWeight="Bold" Background="CadetBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0">Барак</Label>
+            <Label Name="HutLvlLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8" FontWeight="Bold" Content="Lvl 1" />
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="9" FontWeight="Bold" >Скорость</Label>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="10" FontWeight="Bold" >Нападение</Label>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="11" FontWeight="Bold" >Оборона</Label>
+
+            <Label Name="HutPriceLbl" VerticalAlignment="Center" Grid.Column="1" Grid.Row="8" Margin="0" HorizontalAlignment="Center"  >102 кр., 102 тов.</Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="9"  Content="10 кр./1 чл./10 тов. "  />
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="10"  Content="10 кр./1 чл./10 тов. "  />
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="11"  Content="10 кр./1 чл./10 тов. "  />
+
+            <TextBox Name="SpeedUnitTxt" Grid.Column="2" Grid.Row="9" Margin="5" Text="0"/>
+            <TextBox Name="AttackUnitTxt" Grid.Column="2" Grid.Row="10" Margin="5" Text="0"/>
+            <TextBox Name="DefenceUnitTxt" Grid.Column="2" Grid.Row="11" Margin="5" Text="0"/>
+            <Button Name="HutButton" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="12" Margin="5" Click="HutButton_Click" >Тренировать юниты</Button>
+            <Button Name="HutLvlButton" Grid.Column="2" Grid.Row="8" Margin="5" Click="HutLvlButton_Click" >Lvl Up</Button>
+
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="13" FontWeight="Bold" Background="CadetBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0">Жилой модуль</Label>
+            <Label x:Name="ResidenceLvlLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="14" FontWeight="Bold" Content="Lvl 1" />
+            <Label Name="ResidencePriceLbl" VerticalAlignment="Center" Grid.Column="1" Grid.Row="14" Margin="0" HorizontalAlignment="Center"  >102 кр., 102 тов.</Label>
+            <Button Name="ResidenceLvlButton" Grid.Column="2" Grid.Row="14" Margin="5" Click="ResidenceLvlButton_Click" >Lvl Up</Button>
+
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="15" FontWeight="Bold" Background="CadetBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" >Стены</Label>
+            <Label x:Name="WallLvlLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="16" FontWeight="Bold" Content="Lvl 1" />
+            <Label Name="WallPriceLbl" VerticalAlignment="Center" Grid.Column="1" Grid.Row="16" Margin="0" HorizontalAlignment="Center"  >102 кр., 102 тов.</Label>
+            <Button Name="WallLvlButton" Grid.Column="2" Grid.Row="16" Margin="5" Click="WallLvlButton_Click" >Lvl Up</Button>
+
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="17" FontWeight="Bold" Background="CadetBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" >Цех</Label>
+            <Label x:Name="WorkshopLvlLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="18" FontWeight="Bold" Content="Lvl 1" />
+            <Label Name="WorkshopPriceLbl" VerticalAlignment="Center" Grid.Column="1" Grid.Row="18" Margin="0" HorizontalAlignment="Center"  >102 кр., 102 тов.</Label>
+            <Button Name="WorkshopLvlButton" Grid.Column="2" Grid.Row="18" Margin="5" Click="WorkshopLvlButton_Click" >Lvl Up</Button>
+
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="19" FontWeight="Bold" Background="CadetBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" >Портал</Label>
+            <Label x:Name="PortalLvlLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="20" FontWeight="Bold" Content="Lvl 1" />
+            <Label Name="PortalPriceLbl" VerticalAlignment="Center" Grid.Column="1" Grid.Row="20" Margin="0" HorizontalAlignment="Center"  >102 кр., 102 тов.</Label>
+            <Button Name="PortalLvlButton" Grid.Column="2" Grid.Row="20" Margin="5" Click="PortalLvlButton_Click" >Lvl Up</Button>
+
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="21" FontWeight="Bold" >Покупка</Label>
+            <Label VerticalAlignment="Center" Grid.Column="1" Grid.Row="21" Margin="0" HorizontalAlignment="Center" >1.5 кредитов</Label>
+            <TextBox Name="BuyGoodsTxt" Grid.Column="2" Grid.Row="21" Margin="5" Text="0"/>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="22" FontWeight="Bold" >Продажа</Label>
+            <Label VerticalAlignment="Center" Grid.Column="1" Grid.Row="22" Margin="0" HorizontalAlignment="Center" >0.5 кредитов</Label>
+            <TextBox Name="SellGoodsTxt" Grid.Column="2" Grid.Row="22" Margin="5" Text="0"/>
+            <Button Name="PortalButton" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="23" Margin="5" Click="PortalButton_Click" >Обмен</Button>
+
+        </Grid>
+
     </Grid>
 </Window>

@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AttackWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,12 +68,38 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AttackWindow.xaml.cs">
+      <DependentUpon>AttackWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\BattleLogic.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Army.cs" />
+    <Compile Include="Model\AttackUnit.cs" />
+    <Compile Include="Model\Base.cs" />
+    <Compile Include="Model\BehaviorType.cs" />
+    <Compile Include="Model\Building.cs" />
+    <Compile Include="Model\DefenceUnit.cs" />
+    <Compile Include="Model\Enemy.cs" />
+    <Compile Include="Model\GameResults.cs" />
+    <Compile Include="Model\Hut.cs" />
+    <Compile Include="Model\Portal.cs" />
+    <Compile Include="Model\Residence.cs" />
+    <Compile Include="Model\SpeedUnit.cs" />
+    <Compile Include="Model\Unit.cs" />
+    <Compile Include="Model\Wall.cs" />
+    <Compile Include="Model\Workshop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +117,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Image\.DS_Store" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +125,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\enemiesCastle.png" />
+    <Resource Include="Image\enemiesKnight.png" />
+    <Resource Include="Image\grass.png" />
+    <Resource Include="Image\grass2.png" />
+    <Resource Include="Image\land.png" />
+    <Resource Include="Image\ownCastle.png" />
+    <Resource Include="Image\ownKnight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
